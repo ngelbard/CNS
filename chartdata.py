@@ -69,13 +69,13 @@ df.loc[0, 'Currently Hospitalized'] = get_hopsital_total(x)
 df.loc[0, 'Confirmed Deaths'] = get_total_deaths(x)
 
 #total cases yesterday
-df.loc[1, 'Cases Yesterday'] = get_total_cases(x)
+df.loc[1, 'Cases Yesterday'] = str(get_total_cases(x)) + " total cases"
 
 #change in hospitalizations
-df.loc[1, 'Currently Hospitalized'] = (int(get_hopsital_total(x).replace(",", "")) - int(df.loc[2, 'Currently Hospitalized']))
+df.loc[1, 'Currently Hospitalized'] = "24hr Change: " + str((int(get_hopsital_total(x).replace(",", "")) - int(df.loc[2, 'Currently Hospitalized'])))
 
 #change in deaths
-df.loc[1, 'Confirmed Deaths'] = (int(get_total_deaths(x).replace(",", "")) - int(df.loc[2, 'Confirmed Deaths']))
+df.loc[1, 'Confirmed Deaths'] = "24hr Change: " + str((int(get_total_deaths(x).replace(",", "")) - int(df.loc[2, 'Confirmed Deaths'])))
 
 df.to_csv("datachart.csv", index=False)
 
