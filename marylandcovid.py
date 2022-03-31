@@ -1,36 +1,62 @@
 from selenium import webdriver
 from bs4 import BeautifulSoup
 import pandas as pd
-from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.support.ui import Select
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 import csv
 
-s = Service("/Users/ngelbard/Downloads/chromedriver")
+#CNS
+#s = Service("/Users/ngelbard/Downloads/chromedriver")
+#Laptop
+s = Service("/Users/nolangelbard/Downloads/chromedriver")
 
 driver = webdriver.Chrome(service=s)
-main_page = driver.get("https://covid.cdc.gov/covid-data-tracker/#county-view?list_select_state=all_states&list_select_county=all_counties&data-type=")
-#open a webpage
-# Wait a few seconds for load
-WebDriverWait(driver, 20)
-# select the state dropdown
-selectState = Select(driver.find_element(By.XPATH, '//*[@id="community-dropdown-wrapper"]/div[1]/div/div[2]'))
-# select state by visible text
-selectState.select_by_visible_text('Maryland')
-selectCounty = Select(driver.find_element(By.XPATH, '//*[@id="community-dropdown-wrapper"]/div[2]/div/div[2]'))
-# select state by visible text
-selectCounty.select_by_visible_text('Baltimore County')
-# Find the submit button
-button = driver.find_element(By.ID, 'go-button')
-# clicking on the button
-button.click()
-# find element by xpath -- the status for the county
-path = driver.find_element(by=By.XPATH, value='/html/body/div[7]/div[2]/main/div[2]/div[3]/div/div[1]/div/table/tbody/tr[2]/td[2]/span')
-outer = path.get_attribute('outerHTML')
-results = BeautifulSoup(outer, "html.parser")
-print(results.find('span').text)
+
+counties = {
+"24001 Allegany",
+"24003 Anne Arundel",
+"24510 Baltimore City",
+"24005 Baltimore County",
+"24009 Calvert",
+"24011 Caroline",
+"24013 Carroll",
+"24015 Cecil",
+"24017 Charles",
+"24019 Dorchester",
+"24021 Frederick",
+"24023 Garrett",
+"24025 Harford",
+"24027 Howard",
+"24029 Kent",
+"24031 Montgomery",
+"24033 Prince George's",
+"24035 ueen Anne's",
+"24037 Somerset",
+"24039 St. Mary's",
+"24041 Talbot",
+"24043 Washington",
+"24045 Wicomico",
+"24047 Worcester"}
+
+covid_links = []
+for value in counties:
+    #open webpage
+    covid_links.append("https://covid.cdc.gov/covid-data-tracker/#county-view?list_select_state=Maryland&data-type=&null=&list_select_county=" + value[:5])
+
+cases = []
+for link in covid_links:
+    driver.get(link)    
+    # Wait a few seconds for load
+    elem = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, "CCL_cases_per_100K_7_day_count_change")))
+    #get covid data
+    path = driver.find_element(by=By.XPATH, value='//*[@id="CCL_cases_per_100K_7_day_count_change"]')
+    outer = path.get_attribute('outerHTML')
+    results = BeautifulSoup(outer, "html.parser")
+    cases.append(results.find('span').text)
+
 driver.quit()
 
 #df = pd.read_csv("covid_counties.csv")
