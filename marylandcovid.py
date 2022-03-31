@@ -33,7 +33,7 @@ counties = [
 "24029 Kent",
 "24031 Montgomery",
 "24033 Prince George's",
-"24035 ueen Anne's",
+"24035 Queen Anne's",
 "24037 Somerset",
 "24039 St. Mary's",
 "24041 Talbot",
@@ -56,33 +56,32 @@ def get_case_number(link):
     outer = path.get_attribute('outerHTML')
     results = BeautifulSoup(outer, "html.parser")
     return results.find('span').text
+    driver.quit()
 
-#driver.quit()
-
-
-df = pd.read_csv("covid_counties.csv")
-df.loc[0, 'VALUE'] = get_case_number(covid_links[0])
-df.loc[1, 'VALUE'] = get_case_number(covid_links[1])
-df.loc[2, 'VALUE'] = get_case_number(covid_links[2])
-df.loc[3, 'VALUE'] = get_case_number(covid_links[3])
-df.loc[4, 'VALUE'] = get_case_number(covid_links[4])
-df.loc[5, 'VALUE'] = get_case_number(covid_links[5])
-df.loc[6, 'VALUE'] = get_case_number(covid_links[6])
-df.loc[7, 'VALUE'] = get_case_number(covid_links[7])
-df.loc[8, 'VALUE'] = get_case_number(covid_links[8])
-df.loc[9, 'VALUE'] = get_case_number(covid_links[9])
-df.loc[10, 'VALUE'] = get_case_number(covid_links[10])
-df.loc[11, 'VALUE'] = get_case_number(covid_links[11])
-df.loc[12, 'VALUE'] = get_case_number(covid_links[12])
-df.loc[13, 'VALUE'] = get_case_number(covid_links[13])
-df.loc[14, 'VALUE'] = get_case_number(covid_links[14])
-df.loc[15, 'VALUE'] = get_case_number(covid_links[15])
-df.loc[16, 'VALUE'] = get_case_number(covid_links[16])
-df.loc[17, 'VALUE'] = get_case_number(covid_links[17])
-df.loc[18, 'VALUE'] = get_case_number(covid_links[18])
-df.loc[19, 'VALUE'] = get_case_number(covid_links[19])
-df.loc[20, 'VALUE'] = get_case_number(covid_links[20])
-df.loc[21, 'VALUE'] = get_case_number(covid_links[21])
-df.loc[22, 'VALUE'] = get_case_number(covid_links[22])
-df.to_csv("covid_counties.csv", index=False)
+print(covid_links[20])
+#df = pd.read_csv("covid_counties.csv")
+#df.loc[0, 'VALUE'] = get_case_number(covid_links[0])
+#df.loc[1, 'VALUE'] = get_case_number(covid_links[1])
+#df.loc[2, 'VALUE'] = get_case_number(covid_links[2])
+#df.loc[3, 'VALUE'] = get_case_number(covid_links[3])
+#df.loc[4, 'VALUE'] = get_case_number(covid_links[4])
+#df.loc[5, 'VALUE'] = get_case_number(covid_links[5])
+#df.loc[6, 'VALUE'] = get_case_number(covid_links[6])
+#df.loc[7, 'VALUE'] = get_case_number(covid_links[7])
+#df.loc[8, 'VALUE'] = get_case_number(covid_links[8])
+#df.loc[9, 'VALUE'] = get_case_number(covid_links[9])
+#df.loc[10, 'VALUE'] = get_case_number(covid_links[10])
+#df.loc[11, 'VALUE'] = get_case_number(covid_links[11])
+#df.loc[12, 'VALUE'] = get_case_number(covid_links[12])
+#df.loc[13, 'VALUE'] = get_case_number(covid_links[13])
+#df.loc[14, 'VALUE'] = get_case_number(covid_links[14])
+#df.loc[15, 'VALUE'] = get_case_number(covid_links[15])
+#df.loc[16, 'VALUE'] = get_case_number(covid_links[16])
+#df.loc[17, 'VALUE'] = get_case_number(covid_links[17])
+#df.loc[18, 'VALUE'] = get_case_number(covid_links[18])
+#df.loc[19, 'VALUE'] = get_case_number(covid_links[19])
+#df.loc[20, 'VALUE'] = get_case_number(covid_links[20])
+#df.loc[21, 'VALUE'] = get_case_number(covid_links[21])
+#df.loc[22, 'VALUE'] = get_case_number(covid_links[22])
+#df.to_csv("covid_counties.csv", index=False)
 
