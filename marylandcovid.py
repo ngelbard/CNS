@@ -67,7 +67,7 @@ def get_community_level(link):
     # Wait a few seconds for load
     elem = WebDriverWait(driver, 45).until(EC.presence_of_element_located((By.ID, "CCL_community_burden_level_integer")))
     #get community level
-    path2 = driver.fin_element(by=By.XPATH, value='//*[@id="CCL_community_burden_level_integer"]')
+    path2 = driver.find_element(by=By.XPATH, value='//*[@id="CCL_community_burden_level_integer"]')
     outer2 = path2.get_attribute('outerHTML')
     results2 = BeautifulSoup(outer2, "html.parser")
     return results2.find('span').text
