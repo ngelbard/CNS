@@ -54,7 +54,7 @@ def get_case_number(link):
     driver.get('https://www.google.com')
     driver.get(link)    
     # Wait a few seconds for load
-    elem = WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.ID, "CCL_cases_per_100K_7_day_count_change")))
+    elem = WebDriverWait(driver, 45).until(EC.presence_of_element_located((By.ID, "CCL_cases_per_100K_7_day_count_change")))
     #get covid data
     path = driver.find_element(by=By.XPATH, value='//*[@id="CCL_cases_per_100K_7_day_count_change"]')
     outer = path.get_attribute('outerHTML')
