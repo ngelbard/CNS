@@ -1,4 +1,4 @@
-name: Scrape
+name: Covid Scrape
 
 on:  
   schedule:
