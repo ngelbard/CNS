@@ -17,7 +17,7 @@ jobs:
         with:
           python-version: '3.x'
       - name: Install requirements
-        run: python -m pip install pandas selenium requests bs4 webdriver-manager csv  
+        run: python -m pip install pandas selenium requests bs4 webdriver-manager  
       - name: Run Scraper
         run: python marylandcovid.py
       - name: Commit and push if it changed
