@@ -61,6 +61,17 @@ def get_case_number(link):
     results = BeautifulSoup(outer, "html.parser")
     return results.find('span').text
 
+def get_community_level(link):
+    driver.get('https://www.google.com')
+    driver.get(link)    
+    # Wait a few seconds for load
+    elem = WebDriverWait(driver, 45).until(EC.presence_of_element_located((By.ID, "CCL_community_burden_level_integer")))
+    #get community level
+    path2 = driver.fin_element(by=By.XPATH, value='//*[@id="CCL_community_burden_level_integer"]')
+    outer2 = path2.get_attribute('outerHTML')
+    results2 = BeautifulSoup(outer2, "html.parser")
+    return results2.find('span').text
+
 
 df = pd.read_csv("covid_counties.csv")
 df.loc[0, 'VALUE'] = get_case_number(covid_links[0])
@@ -86,6 +97,29 @@ df.loc[19, 'VALUE'] = get_case_number(covid_links[19])
 df.loc[20, 'VALUE'] = get_case_number(covid_links[20])
 df.loc[21, 'VALUE'] = get_case_number(covid_links[21])
 df.loc[22, 'VALUE'] = get_case_number(covid_links[22])
+df.loc[0, 'LEVEL'] = get_community_level(covid_links[0])
+df.loc[1, 'LEVEL'] = get_community_level(covid_links[1])
+df.loc[2, 'LEVEL'] = get_community_level(covid_links[2])
+df.loc[3, 'LEVEL'] = get_community_level(covid_links[3])
+df.loc[4, 'LEVEL'] = get_community_level(covid_links[4])
+df.loc[5, 'LEVEL'] = get_community_level(covid_links[5])
+df.loc[6, 'LEVEL'] = get_community_level(covid_links[6])
+df.loc[7, 'LEVEL'] = get_community_level(covid_links[7])
+df.loc[8, 'LEVEL'] = get_community_level(covid_links[8])
+df.loc[9, 'LEVEL'] = get_community_level(covid_links[9])
+df.loc[10, 'LEVEL'] = get_community_level(covid_links[10])
+df.loc[11, 'LEVEL'] = get_community_level(covid_links[11])
+df.loc[12, 'LEVEL'] = get_community_level(covid_links[12])
+df.loc[13, 'LEVEL'] = get_community_level(covid_links[13])
+df.loc[14, 'LEVEL'] = get_community_level(covid_links[14])
+df.loc[15, 'LEVEL'] = get_community_level(covid_links[15])
+df.loc[16, 'LEVEL'] = get_community_level(covid_links[16])
+df.loc[17, 'LEVEL'] = get_community_level(covid_links[17])
+df.loc[18, 'LEVEL'] = get_community_level(covid_links[18])
+df.loc[19, 'LEVEL'] = get_community_level(covid_links[19])
+df.loc[20, 'LEVEL'] = get_community_level(covid_links[20])
+df.loc[21, 'LEVEL'] = get_community_level(covid_links[21])
+df.loc[22, 'LEVEL'] = get_community_level(covid_links[22])
 df.to_csv("covid_counties.csv", index=False)
 
 driver.quit()
