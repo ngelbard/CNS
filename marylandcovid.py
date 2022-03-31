@@ -6,14 +6,17 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-import csv
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.options import Options
 
 #CNS
-s = Service("/Users/ngelbard/Downloads/chromedriver")
+#s = Service("/Users/ngelbard/Downloads/chromedriver")
 #Laptop
 #s = Service("/Users/nolangelbard/Downloads/chromedriver")
+chrome_options = Options()
+chrome_options.add_argument("--headless")
 
-driver = webdriver.Chrome(service=s)
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
 
 counties = [
 "24001 Allegany",
