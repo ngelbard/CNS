@@ -70,7 +70,7 @@ def get_community_level(link):
     path2 = driver.find_element(by=By.XPATH, value='//*[@id="CCL_community_burden_level_integer"]')
     outer2 = path2.get_attribute('outerHTML')
     results2 = BeautifulSoup(outer2, "html.parser")
-    return results2.find('span').text
+    return results2.find('div').text
 
 
 df = pd.read_csv("covid_counties.csv")
