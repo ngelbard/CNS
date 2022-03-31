@@ -23,7 +23,7 @@ jobs:
       - name: setup python
         run: actions/setup-python@v3
         with:
-          python-version: 3.x
+          python-version: '3.x'
         
         name: Intall requirements
         run: python -m pip3 install selenium BeautifulSoup pandas csv webdriver-manager
