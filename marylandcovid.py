@@ -15,7 +15,7 @@ s = Service("/Users/nolangelbard/Downloads/chromedriver")
 
 driver = webdriver.Chrome(service=s)
 
-counties = {
+counties = [
 "24001 Allegany",
 "24003 Anne Arundel",
 "24510 Baltimore City",
@@ -39,49 +39,50 @@ counties = {
 "24041 Talbot",
 "24043 Washington",
 "24045 Wicomico",
-"24047 Worcester"}
+"24047 Worcester"]
 
 covid_links = []
 for value in counties:
     #open webpage
     covid_links.append("https://covid.cdc.gov/covid-data-tracker/#county-view?list_select_state=Maryland&data-type=&null=&list_select_county=" + value[:5])
 
-cases = []
-for link in covid_links:
+
+def get_case_number(link):
     driver.get(link)    
     # Wait a few seconds for load
-    elem = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, "CCL_cases_per_100K_7_day_count_change")))
+    elem = WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.ID, "CCL_cases_per_100K_7_day_count_change")))
     #get covid data
     path = driver.find_element(by=By.XPATH, value='//*[@id="CCL_cases_per_100K_7_day_count_change"]')
     outer = path.get_attribute('outerHTML')
     results = BeautifulSoup(outer, "html.parser")
-    cases.append(results.find('span').text)
+    return results.find('span').text
 
-driver.quit()
+#driver.quit()
 
-#df = pd.read_csv("covid_counties.csv")
-#df.loc[0, 'VALUE'] = 
-#df.loc[1, 'VALUE'] = 
-#df.loc[2, 'VALUE'] = 
-#df.loc[3, 'VALUE'] = 
-#df.loc[4, 'VALUE'] = 
-#df.loc[5, 'VALUE'] = 
-#df.loc[6, 'VALUE'] = 
-#df.loc[7, 'VALUE'] = 
-#df.loc[8, 'VALUE'] = 
-#df.loc[9, 'VALUE'] = 
-#df.loc[11, 'VALUE'] = 
-#df.loc[12, 'VALUE'] = 
-#df.loc[13, 'VALUE'] = 
-#df.loc[14, 'VALUE'] = 
-#df.loc[15, 'VALUE'] = 
-#df.loc[16, 'VALUE'] = 
-#df.loc[17, 'VALUE'] = 
-#df.loc[18, 'VALUE'] = 
-#df.loc[19, 'VALUE'] = 
-#df.loc[20, 'VALUE'] = 
-#df.loc[21, 'VALUE'] = 
-#df.loc[22, 'VALUE'] = 
-#df.loc[23, 'VALUE'] = 
-#df.to_csv("covid_counties.csv", index=False)
+
+df = pd.read_csv("covid_counties.csv")
+df.loc[0, 'VALUE'] = get_case_number(covid_links[0])
+df.loc[1, 'VALUE'] = get_case_number(covid_links[1])
+df.loc[2, 'VALUE'] = get_case_number(covid_links[2])
+df.loc[3, 'VALUE'] = get_case_number(covid_links[3])
+df.loc[4, 'VALUE'] = get_case_number(covid_links[4])
+df.loc[5, 'VALUE'] = get_case_number(covid_links[5])
+df.loc[6, 'VALUE'] = get_case_number(covid_links[6])
+df.loc[7, 'VALUE'] = get_case_number(covid_links[7])
+df.loc[8, 'VALUE'] = get_case_number(covid_links[8])
+df.loc[9, 'VALUE'] = get_case_number(covid_links[9])
+df.loc[10, 'VALUE'] = get_case_number(covid_links[10])
+df.loc[11, 'VALUE'] = get_case_number(covid_links[11])
+df.loc[12, 'VALUE'] = get_case_number(covid_links[12])
+df.loc[13, 'VALUE'] = get_case_number(covid_links[13])
+df.loc[14, 'VALUE'] = get_case_number(covid_links[14])
+df.loc[15, 'VALUE'] = get_case_number(covid_links[15])
+df.loc[16, 'VALUE'] = get_case_number(covid_links[16])
+df.loc[17, 'VALUE'] = get_case_number(covid_links[17])
+df.loc[18, 'VALUE'] = get_case_number(covid_links[18])
+df.loc[19, 'VALUE'] = get_case_number(covid_links[19])
+df.loc[20, 'VALUE'] = get_case_number(covid_links[20])
+df.loc[21, 'VALUE'] = get_case_number(covid_links[21])
+df.loc[22, 'VALUE'] = get_case_number(covid_links[22])
+df.to_csv("covid_counties.csv", index=False)
 
