@@ -55,12 +55,12 @@ def get_hospital_total(link):
 df = pd.read_csv("datachart.csv")
 
 #Moving Yesterdays Totals
-df.loc[2, 'Cases Yesterday'] = df.loc[1, 'Cases Yesterday']
+df.loc[2, 'Cases Yesterday'] = df.loc[1, 'Cases Yesterday'][0:-12].replace(",", "")
 df.loc[2, 'Currently Hospitalized'] = df.loc[0, 'Currently Hospitalized']
-df.loc[2, 'Confirmed Deaths'] = df.loc[0, 'Confirmed Deaths']
+df.loc[2, 'Confirmed Deaths'] = df.loc[0, 'Confirmed Deaths'].replace(",", "")
 
 #Change in total cases
-df.loc[0, 'Cases Yesterday'] = (int(get_total_cases(x).replace(",", "")) - int((df.loc[2, 'Cases Yesterday'][0:-12]).replace(",", ""))
+df.loc[0, 'Cases Yesterday'] = (int(get_total_cases(x).replace(",", "")) - int(df.loc[2, 'Cases Yesterday']))
 
 #total Hospitalized
 df.loc[0, 'Currently Hospitalized'] = get_hospital_total(x)
