@@ -42,7 +42,7 @@ def get_total_deaths(link):
 
 
 #currenlty hospital
-def get_hopsital_total(link):
+def get_hospital_total(link):
     driver.get(link)
     elem = WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.ID, "CurrentHospitalized")))
     path = driver.find_element(by=By.XPATH, value='//*[@id="CurrentHospitalized"]')
@@ -60,10 +60,10 @@ df.loc[2, 'Currently Hospitalized'] = df.loc[0, 'Currently Hospitalized']
 df.loc[2, 'Confirmed Deaths'] = df.loc[0, 'Confirmed Deaths']
 
 #Change in total cases
-df.loc[0, 'Cases Yesterday'] = (int(get_total_cases(x).replace(",", "")) - int(df.loc[2, 'Cases Yesterday']))
+df.loc[0, 'Cases Yesterday'] = (int(get_total_cases(x).replace(",", "")) - int((df.loc[2, 'Cases Yesterday'][0:-12]).replace(",", ""))
 
 #total Hospitalized
-df.loc[0, 'Currently Hospitalized'] = get_hopsital_total(x)
+df.loc[0, 'Currently Hospitalized'] = get_hospital_total(x)
 
 #total Dead
 df.loc[0, 'Confirmed Deaths'] = get_total_deaths(x)
@@ -72,7 +72,7 @@ df.loc[0, 'Confirmed Deaths'] = get_total_deaths(x)
 df.loc[1, 'Cases Yesterday'] = str(get_total_cases(x)) + " total cases"
 
 #change in hospitalizations
-df.loc[1, 'Currently Hospitalized'] = "24hr Change: " + str((int(get_hopsital_total(x).replace(",", "")) - int(df.loc[2, 'Currently Hospitalized'])))
+df.loc[1, 'Currently Hospitalized'] = "24hr Change: " + str((int(get_hospital_total(x).replace(",", "")) - int(df.loc[2, 'Currently Hospitalized'])))
 
 #change in deaths
 df.loc[1, 'Confirmed Deaths'] = "24hr Change: " + str((int(get_total_deaths(x).replace(",", "")) - int(df.loc[2, 'Confirmed Deaths'])))
