@@ -59,7 +59,11 @@ def get_case_rate(link):
     path = driver.find_element(by=By.XPATH, value='//*[@id="cases-timeseries-wrapper"]/div/div[1]/div/div[1]/div[2]/div[2]/span')
     outer = path.get_attribute('outerHTML')
     results = BeautifulSoup(outer, "html.parser")
-    return results.find('span').text
+    rate = results.find('span').text
+    if rate == "suppressed":
+        return 0
+    else:
+        return rate
 
 def get_case_number(link):
     driver.get('https://www.google.com')
