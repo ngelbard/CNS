@@ -1,25 +1,25 @@
 NAME,VALUE,CASES,LEVEL
-Allegany,53.97,38,Low
-Anne Arundel,92.88,538,Low
-Baltimore City,120.47,715,Low
-Baltimore County,83.28,689,Low
-Calvert,81.06,75,Low
-Caroline,50.89,17,Low
-Carroll,74.80,126,Low
-Cecil,70.97,73,Low
-Charles,82.69,135,Low
+Allegany,41.18,29,Low
+Anne Arundel,103.76,601,Low
+Baltimore City,124.35,738,Low
+Baltimore County,86.90,719,Low
+Calvert,84.30,78,Low
+Caroline,59.87,20,Low
+Carroll,75.39,127,Low
+Cecil,65.14,67,Low
+Charles,105.97,173,Low
 Dorchester,0,<10,Low
-Frederick,78.21,203,Low
+Frederick,88.62,230,Low
 Garrett,0,<10,Low
-Harford,88.87,227,Low
-Howard,142.47,464,Low
-Kent,61.79,12,Low
-Montgomery,165.51,1739,Low
-Prince George's,98.53,896,Low
-Queen Anne's,47.64,24,Low
-Somerset,73.12,83,Low
+Harford,93.96,240,Low
+Howard,149.22,486,Low
+Kent,56.64,11,Low
+Montgomery,178.64,1877,Low
+Prince George's,97.87,890,Low
+Queen Anne's,53.59,27,Low
+Somerset,79.29,90,Low
 St. Mary's,0,<10,Low
 Talbot,72.62,27,Low
-Washington,43.69,66,Low
-Wicomico,43.43,45,Low
-Worcester,53.56,28,Low
+Washington,44.36,67,Low
+Wicomico,60.81,63,Low
+Worcester,55.47,29,Low
