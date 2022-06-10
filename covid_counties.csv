@@ -1,23 +1,23 @@
 NAME,VALUE,CASES,LEVEL
 Allegany,311.01,219,Medium
-Anne Arundel,253.09,1466,High
+Anne Arundel,253.09,1466,Medium
 Baltimore City,298.57,1772,High
-Baltimore County,226.86,1877,High
+Baltimore County,226.86,1877,Medium
 Calvert,224.80,208,Medium
 Caroline,158.65,53,Low
 Carroll,197.09,332,Medium
 Cecil,212.92,219,Medium
-Charles,316.68,517,Medium
-Dorchester,241.16,77,Medium
+Charles,316.68,517,Low
+Dorchester,241.16,77,Low
 Frederick,238.49,619,Low
-Garrett,155.10,45,Medium
+Garrett,155.10,45,Low
 Harford,196.91,503,Medium
 Howard,314.10,1023,High
-Kent,216.25,42,High
+Kent,216.25,42,Low
 Montgomery,434.10,4561,Medium
-Prince George's,279.55,2542,Medium
+Prince George's,279.55,2542,Low
 Queen Anne's,170.70,86,Low
-Somerset,264.29,300,Medium
+Somerset,264.29,300,Low
 St. Mary's,109.31,28,Medium
 Talbot,137.17,51,Low
 Washington,168.16,254,Low
