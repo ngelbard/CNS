@@ -1,25 +1,25 @@
 NAME,VALUE,CASES,LEVEL
-Allegany,97.99,69,Medium
-Anne Arundel,150.20,870,Medium
-Baltimore City,172.37,1023,High
-Baltimore County,125.34,1037,Medium
-Calvert,103.76,96,Medium
-Caroline,68.85,23,Low
-Carroll,102.11,172,Medium
-Cecil,110.84,114,Medium
-Charles,254.20,415,Low
-Dorchester,225.50,72,Low
-Frederick,135.24,351,Low
+Allegany,112.19,79,Low
+Anne Arundel,151.41,877,Low
+Baltimore City,166.47,988,Low
+Baltimore County,119.90,992,Low
+Calvert,103.76,96,Low
+Caroline,62.86,21,Low
+Carroll,98.55,166,Low
+Cecil,117.64,121,Low
+Charles,248.69,406,Medium
+Dorchester,225.50,72,Medium
+Frederick,125.22,325,Low
 Garrett,127.52,37,Low
-Harford,107.66,275,Medium
-Howard,200.50,653,High
-Kent,66.93,13,Low
-Montgomery,229.75,2414,Medium
-Prince George's,182.77,1662,Low
-Queen Anne's,101.23,51,Low
-Somerset,158.58,180,Low
+Harford,102.96,263,Low
+Howard,193.44,630,Low
+Kent,77.23,15,High
+Montgomery,228.23,2398,Medium
+Prince George's,176.28,1603,Low
+Queen Anne's,115.12,58,Low
+Somerset,151.53,172,Low
 St. Mary's,89.79,23,Medium
-Talbot,115.65,43,Low
-Washington,113.21,171,Low
-Wicomico,140.91,146,Medium
-Worcester,133.90,70,Medium
+Talbot,107.58,40,Low
+Washington,115.19,174,Low
+Wicomico,137.05,142,Medium
+Worcester,128.17,67,Medium
