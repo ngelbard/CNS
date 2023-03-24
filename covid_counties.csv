@@ -1,25 +1,25 @@
 NAME,VALUE,CASES,LEVEL
-Allegany,41.18,29,Low
-Anne Arundel,39.88,231,Low
-Baltimore City,48.02,285,Low
-Baltimore County,40.13,332,Low
-Calvert,21.62,20,Low
+Allegany,71.01,50,Low
+Anne Arundel,30.56,177,Low
+Baltimore City,37.24,221,Low
+Baltimore County,29.37,243,Low
+Calvert,25.94,24,Low
 Caroline,35.92,12,Low
-Carroll,38.59,65,Low
-Cecil,42.78,44,Low
-Charles,43.49,71,Low
-Dorchester,56.38,18,Low
-Frederick,38.14,99,Low
-Garrett,62.04,18,Low
-Harford,36.02,92,Low
-Howard,46.06,150,Low
-Kent,36.04,7,Low
-Montgomery,40.74,428,Low
-Prince George's,38.82,353,Low
-Queen Anne's,33.74,17,Low
-Somerset,25.55,29,Low
-St. Mary's,3.90,1,Low
-Talbot,43.03,16,Low
-Washington,35.75,54,Low
-Wicomico,33.78,35,Low
-Worcester,47.82,25,Low
+Carroll,29.09,49,Low
+Cecil,27.22,28,Low
+Charles,30.01,49,Low
+Dorchester,43.85,14,Low
+Frederick,36.60,95,Low
+Garrett,75.83,22,Low
+Harford,34.84,89,Low
+Howard,31.63,103,Low
+Kent,5.15,1,Low
+Montgomery,35.69,375,Low
+Prince George's,25.95,236,Low
+Queen Anne's,27.79,14,Low
+Somerset,23.79,27,Low
+St. Mary's,27.33,7,Medium
+Talbot,26.90,10,Low
+Washington,21.85,33,Low
+Wicomico,49.22,51,Medium
+Worcester,26.78,14,Medium
